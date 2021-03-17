@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour
     private RaycastHit hit;    // Hit Checker
     private string hitColliderName;
 
+    // Team Separation
+    public GameObject[] blueAlters;
+    public GameObject[] redAlters;
+
     // Start is called before the first frame update
     private void Start()
     {
