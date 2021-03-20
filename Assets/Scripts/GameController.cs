@@ -16,28 +16,34 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        pc = GetComponent<NavMeshAgent>();
+        //pc = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    
+    public void ObjectMove()
     {
-        FindPC();
-    }
-
-
-    // Find + return Cliked PC name
-    public string FindPC()
-    {
-        if (Input.GetMouseButtonDown(0)) // Left Mouse Click
+        if (Input.GetMouseButtonDown(0))    // Get Hero's name
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray, out hit, Mathf.Infinity);   // Shot Ray
 
-            hitColliderName = hit.collider.name;   
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                Debug.Log(hit.transform.gameObject.name);
+                hitColliderName = hit.transform.gameObject.name;
+            }
         }
 
-        return hitColliderName;  // return Clicked PC Name
+        if (Input.GetMouseButtonDown(1))    // Right Mouse Click && Hero Clicked
+        {
+            pc = GameObject.Find(hitColliderName).GetComponent<NavMeshAgent>();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Ray Set; Mouse Pointer Position
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                pc.SetDestination(hit.point); // Hero Move
+            }
+        }
     }
+
 
 }

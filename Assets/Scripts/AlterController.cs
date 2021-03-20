@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class AlterController : MonoBehaviour
 {
-    private NavMeshAgent alter;
-    private RaycastHit hit;    // Hit Checker
-
-    private bool isClicked;
 
     GameController gameController;
 
@@ -16,30 +12,21 @@ public class AlterController : MonoBehaviour
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        alter = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameController.FindPC() == "Alter1")  // if Clicked PC name is Alter
-        {
-            isClicked = true;   // Clicked Check
-        }
-        else
-        {
-            isClicked = false;
-        }
+        gameController.ObjectMove();
+    }
 
-        if (Input.GetMouseButtonDown(1) && isClicked == true) // Right Mouse Click && Alter Clicked
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.name == "Hero_B")
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Ray Set; Mouse Pointer Position
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                alter.SetDestination(hit.point);    // Alter Move
-            }
+            Debug.Log("Hit");
+            Destroy(gameObject);
         }
-
     }
 }
