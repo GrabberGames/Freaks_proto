@@ -55,7 +55,6 @@ public class FreeksController : MonoBehaviour
                 closeAlterNum = i;
             }
         }
-
         return enemyAlters[closeAlterNum];
     }
 }

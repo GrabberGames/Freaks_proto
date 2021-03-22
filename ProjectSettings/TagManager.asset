@@ -6,14 +6,17 @@ TagManager:
   tags:
   - Player_R
   - Player_B
+  - Alter
+  - Freaks_R
+  - Freaks_B
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Alter
   - Water
   - UI
-  - 
+  - Freaks
   - 
   - 
   - 
