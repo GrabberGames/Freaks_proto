@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class GameController : MonoBehaviour
 {
-    private NavMeshAgent pc;
+    // private NavMeshAgent pc;
     private RaycastHit hit;    // Hit Checker
     private string hitColliderName;
 
@@ -19,8 +19,8 @@ public class GameController : MonoBehaviour
         //pc = GetComponent<NavMeshAgent>();
     }
 
-    
-    public void ObjectMove()
+
+    public void ObjectMove(NavMeshAgent agent)
     {
         if (Input.GetMouseButtonDown(0))    // Get Hero's name
         {
@@ -35,12 +35,13 @@ public class GameController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))    // Right Mouse Click && Hero Clicked
         {
-            pc = GameObject.Find(hitColliderName).GetComponent<NavMeshAgent>();
+            Debug.Log(hitColliderName);
+            agent = GameObject.Find(hitColliderName).GetComponent<NavMeshAgent>();
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Ray Set; Mouse Pointer Position
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                pc.SetDestination(hit.point); // Hero Move
+                agent.SetDestination(hit.point); // Hero Move
             }
         }
     }

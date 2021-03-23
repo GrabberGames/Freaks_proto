@@ -6,19 +6,20 @@ using UnityEngine.AI;
 
 public class AlterController : MonoBehaviour
 {
-
+    private NavMeshAgent alter;
     GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
+        alter = GetComponent<NavMeshAgent>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameController.ObjectMove();
+        gameController.ObjectMove(alter);
     }
 
     void OnTriggerEnter(Collider other)
