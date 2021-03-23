@@ -26,6 +26,7 @@ public class Alter2Controller : MonoBehaviour
         if (other.gameObject.name == "Hero_R")
         {
             Debug.Log("Hit");
+            gameController.blueAlters.Remove(gameObject);
             Destroy(gameObject);
         }
     }

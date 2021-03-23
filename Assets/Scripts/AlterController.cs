@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ public class AlterController : MonoBehaviour
         if (other.gameObject.name == "Hero_B")
         {
             Debug.Log("Hit");
+            gameController.redAlters.Remove(gameObject);
             Destroy(gameObject);
         }
     }

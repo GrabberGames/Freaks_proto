@@ -10,8 +10,8 @@ public class GameController : MonoBehaviour
     private string hitColliderName;
 
     // Team Separation
-    public GameObject[] blueAlters;
-    public GameObject[] redAlters;
+    public List<GameObject> blueAlters = new List<GameObject>();
+    public List<GameObject> redAlters = new List<GameObject>();
 
     // Start is called before the first frame update
     private void Start()
