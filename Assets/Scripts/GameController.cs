@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class GameController : MonoBehaviour
 {
-    // private NavMeshAgent pc;
     private RaycastHit hit;    // Hit Checker
     private string hitColliderName;
 
