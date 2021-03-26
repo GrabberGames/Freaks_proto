@@ -20,7 +20,6 @@ public class HeroController : MonoBehaviour
         anim = GetComponent<Animator>();
         hero = GetComponent<NavMeshAgent>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-
     }
 
     // Update is called once per frame

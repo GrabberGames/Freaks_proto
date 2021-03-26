@@ -13,10 +13,27 @@ public class GameController : MonoBehaviour
     public List<GameObject> blueAlters = new List<GameObject>();
     public List<GameObject> redAlters = new List<GameObject>();
 
+    // UI
+    public GameObject gameOver;
+
+
     // Start is called before the first frame update
     private void Start()
     {
         //pc = GetComponent<NavMeshAgent>();
+        //gameOver = GameObject.Find("GameOver");
+    }
+
+    private void Update()
+    {
+        if (redAlters.Count <= 0 || blueAlters.Count <= 0)
+        {
+            gameOver.SetActive(true);
+        }
+        else
+        {
+            gameOver.SetActive(false);
+        }
     }
 
 
@@ -45,6 +62,4 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
-
 }

@@ -25,10 +25,18 @@ public class AlterController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
-        if (other.gameObject.name == "Hero_B")
+        if (other.gameObject.name == "Hero_B" && gameObject.name == "Alter1")
         {
-            Debug.Log("Hit");
+            Debug.Log("Hit: HeroB + AlterR");
             gameController.redAlters.Remove(gameObject);
+
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.name == "Hero_R" && gameObject.name == "Alter2")
+        {
+            Debug.Log("Hit: HeroR + AlterB");
+            gameController.blueAlters.Remove(gameObject);
+
             Destroy(gameObject);
         }
     }
